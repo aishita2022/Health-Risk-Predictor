@@ -1,0 +1,91 @@
+
+{% extends "layout.html" %}
+{% block content %}
+
+<style type="text/css">
+  body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    background-image: url('/static/heartnew.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 20px;
+  }
+
+  .form-style-3 {
+    max-width: 900px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+
+  .form-style-3 label > span {
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    color: #343a40;
+  }
+
+  .form-style-3 input[type="number"] {
+    width: 60%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .form-style-3 input[type="submit"] {
+    background-color: #343a40;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .form-style-3 input[type="submit"]:hover {
+    background-color: #555;
+  }
+
+  h1, h2 {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+</style>
+
+<h1><br/>Heart Disease Prediction<br/><br/></h1>
+<div class="form-style-3">
+  <form action="{{ url_for('predictheartdisease') }}" method="post">
+    <fieldset>
+      <legend>Please Provide The Details</legend>
+      <label for="field1"><span>Age:</span><input type="number" step="0.00000000000001" placeholder="Age" class="input-field" name="field1" required /></label>
+      <label for="field2"><span>Sex:</span><input type="number" step="0.00000000000001" placeholder="0 for female, 1 for male" class="input-field" name="field2" required /></label>
+      <label for="field3"><span>Chest Pain Type:</span><input type="number" step="0.00000000000001" placeholder="0, 1, 2, or 3" class="input-field" name="field3" required /></label>
+      <label for="field4"><span>Resting Blood Pressure:</span><input type="number" step="0.00000000000001" placeholder="Resting Blood Pressure" class="input-field" name="field4" required /></label>
+      <label for="field5"><span>Cholesterol:</span><input type="number" step="0.00000000000001" placeholder="Cholesterol" class="input-field" name="field5" required /></label>
+      <label for="field6"><span>Fasting Blood Sugar:</span><input type="number" step="0.00000000000001" placeholder="0 or 1" class="input-field" name="field6" required /></label>
+      <label for="field7"><span>Resting Electrocardiographic Results:</span><input type="number" step="0.00000000000001" placeholder="0, 1, or 2" class="input-field" name="field7" required /></label>
+      <label for="field8"><span>Maximum Heart Rate Achieved:</span><input type="number" step="0.00000000000001" placeholder="Maximum Heart Rate Achieved" class="input-field" name="field8" required /></label>
+      <label for="field9"><span>Exercise Induced Angina:</span><input type="number" step="0.00000000000001" placeholder="0 or 1" class="input-field" name="field9" required /></label>
+      <label for="field10"><span>ST Depression Induced by Exercise Relative to Rest:</span><input type="number" step="0.00000000000001" placeholder="ST Depression" class="input-field" name="field10" required /></label>
+      <label for="field11"><span>Slope of the Peak Exercise ST Segment:</span><input type="number" step="0.00000000000001" placeholder="0, 1, or 2" class="input-field" name="field11" required /></label>
+      <label for="field12"><span>Number of Major Vessels (0-3) Colored by Flourosopy:</span><input type="number" step="0.00000000000001" placeholder="Number of Major Vessels" class="input-field" name="field12" required /></label>
+      <label for="field13"><span>Thal:</span><input type="number" step="0.00000000000001" placeholder="0, 1, 2, or 3" class="input-field" name="field13" required /></label>
+      <label><span>&nbsp;</span><input type="submit" value="Predict" /></label>
+    </fieldset>
+  </form>
+  <h2>{{ output_text }}</h2>
+</div>
+{% endblock %}
